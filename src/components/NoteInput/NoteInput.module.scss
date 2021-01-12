@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap");
+
+.NoteInput {
+    box-sizing: border-box;
+    width: 350px;
+    height: 55px;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    transition: all .3s;
+}
+
+.NoteInput.active {
+    border-color: #DDA0DD;
+}
+
+.NoteInput textarea:hover {
+    border-color: #ca30ca;
+}
+
+.NoteInput textarea:focus {
+    border-color: #ca30ca;
+}
+
+.NoteInput form {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.NoteInput textarea {
+    flex-grow: 1;
+    resize: none;
+    display: block;
+    box-sizing: border-box;
+    background-color: transparent;
+    outline: none;
+    border: 2.5px solid #fff;
+    border-radius: 12px;
+    transition: all .3s;
+}
+
+.NoteInput button {
+    font-family: 'East Sea Dokdo', cursive;
+    position: relative;
+    font-size: 25px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ff00de, 0 0 80px #ff00de, 0 0 90px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    border-radius: 14px;
+    border-color: transparent;
+    align-self: flex-end;
+    outline: none;
+    background-color: transparent;
+    transition: all .3s;
+    span {
+        position: absolute;
+        top: -7%;
+        left: 33%;
+    }
+}
+
+.NoteInput button:hover {
+    border-color: #ca30ca;
+    background-color: #DDA0DD;
+}
