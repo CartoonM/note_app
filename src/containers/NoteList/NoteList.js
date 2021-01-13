@@ -9,8 +9,10 @@ import {addNote} from '../../store/actions/notes';
 const NoteList = props => {
 
     const [textArea, setTextArea] = useState({
-        value: ''
+        value: '',
+        isBlink: false
     })
+    const [enableScroll, setEnableScroll] = useState(true)
 
     const setText = event => {
         const currentState = {...textArea};
@@ -20,14 +22,25 @@ const NoteList = props => {
 
     const addNote = event => {
         event.preventDefault();
+        setEnableScroll(!enableScroll);
+
+        if (!textArea.value.trim()) {
+            setTextArea({...textArea, isBlink: true})
+            setTimeout(() => setTextArea({...textArea, isBlink: false}), 1000)
+            return
+        }
 
         props.addNote(textArea);
-        setTextArea({value: ''})
+        setTextArea({value: ''});
     }
 
-    console.log(props)
+    const noteCount = props.notes.length;
     const notes = props.notes.map((note, index) => {
-        return <NoteItem text={note.value} key={index} />
+        return <NoteItem
+                  text = {note.value}
+                  key = {index}
+                  setDelay = {index === noteCount - 1}
+                />
     })
 
     return (
@@ -36,9 +49,9 @@ const NoteList = props => {
               onChange={setText}
               value={textArea.value}
               onClick={addNote}
+              isBlink={textArea.isBlink}
             />
             <div className={classes.NoteList}>
-                {/* <NoteItem text={textArea.value} /> */}
                 {notes}
             </div>
         </>
