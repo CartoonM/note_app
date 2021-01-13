@@ -6,6 +6,11 @@
     margin-top: 15px;
     border: 2px solid #fff;
     border-radius: 12px;
+    transition: opacity .9s;
+}
+
+.NoteItem.hide {
+    opacity: 0;
 }
 
 .NoteItem textarea {
