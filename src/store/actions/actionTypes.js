@@ -1,1 +1,5 @@
 export const ADD_NOTE = 'ADD_NOTE';
+
+export const SET_TOKEN = 'SET_TOKEN';
+export const FETCH_LOGIN_START = 'FETCH_LOGIN_START';
+export const FETCH_LOGIN_SUCCESS = 'FETCH_LOGIN_SUCCESS';
