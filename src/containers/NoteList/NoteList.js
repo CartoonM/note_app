@@ -8,37 +8,36 @@ import {addNote} from '../../store/actions/notes';
 
 const NoteList = props => {
 
-    const [textArea, setTextArea] = useState({
-        value: '',
-        isBlink: false
+    const [noteInCreate, setNoteInCreate] = useState({
+        title: '',
+        body: ''
     })
-    const [enableScroll, setEnableScroll] = useState(true)
+    const [isBlink, setBlink] = useState(false)
 
     const setText = event => {
-        const currentState = {...textArea};
-        currentState.value = event.target.value;
-        setTextArea(currentState);
+        const currentState = {...noteInCreate};
+        currentState.body = event.target.value;
+        setNoteInCreate(currentState);
     }
 
     const addNote = event => {
         event.preventDefault();
-        setEnableScroll(!enableScroll);
 
-        if (!textArea.value.trim()) {
-            setTextArea({...textArea, isBlink: true})
-            setTimeout(() => setTextArea({...textArea, isBlink: false}), 1000)
+        if (!noteInCreate.body.trim()) {
+            setBlink(true);
+            setTimeout(() => setBlink(false), 1000);
             return
         }
 
-        props.addNote(textArea);
-        setTextArea({value: ''});
+        props.addNote(noteInCreate);
+        setNoteInCreate({title: '', body: ''});
     }
 
     const noteCount = props.notes.length;
     const notes = props.notes.map((note, index) => {
         return <NoteItem
-                  text = {note.value}
-                  key = {index}
+                  text = {note.body}
+                  key = {note.id}
                   setDelay = {index === noteCount - 1}
                 />
     })
@@ -47,9 +46,9 @@ const NoteList = props => {
         <>
             <NoteInput
               onChange={setText}
-              value={textArea.value}
+              value={noteInCreate.body}
               onClick={addNote}
-              isBlink={textArea.isBlink}
+              isBlink={isBlink}
             />
             <div className={classes.NoteList}>
                 {notes}
