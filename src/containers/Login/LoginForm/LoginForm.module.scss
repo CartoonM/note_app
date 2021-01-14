@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&display=swap");
+
+.LoginForm {
+    width: 150px;
+}
+
+.LoginForm input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #fff;
+    border-radius: 4px;
+    transition: border .3s;
+    &:focus {
+        border-color: rgb(184, 43, 184);
+        border-width: 3px;
+    }
+}
+
+.Submit {
+    box-sizing: border-box;
+    margin-left: 15px;
+}
+
+.Submit button {
+    font-family: 'East Sea Dokdo', cursive;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    width: 30px;
+    height: 30px;
+    outline: none;
+    border-radius: 13px;
+    background-color: transparent;
+    border-color: transparent;
+    transition: border-color .3s;
+    color: rgb(184, 43, 184);
+    &:hover {
+        border-color: rgb(184, 43, 184);
+    }
+}
+
+.LoginForm small {
+    display: block;
+    font-size: 10px;
+    color: rgb(200, 17, 17);
+    transition: opacity .1s;
+    margin-left: 10px;
+}
+
+.LoginForm small.hide {
+    opacity: 0;
+}
