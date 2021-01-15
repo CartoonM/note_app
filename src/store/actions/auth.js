@@ -4,6 +4,7 @@ import {
     FETCH_LOGIN_START,
     FETCH_LOGIN_SUCCESS
 } from './actionTypes';
+import {fetchNotes} from './notes'
 
 export function signIn(credentials) {
     return async dispatch => {
@@ -16,9 +17,18 @@ export function signIn(credentials) {
             localStorage.setItem('token', token);
             dispatch(autoSuccess(token));
             dispatch(fetchLoginSuccess());
+            dispatch(fetchNotes());
         } catch (err) {
             console.log(err)
         }
+    }
+}
+
+export function autoLogin() {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        if (token)
+            dispatch(autoSuccess(token));
     }
 }
 
