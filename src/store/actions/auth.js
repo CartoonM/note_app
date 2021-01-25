@@ -3,6 +3,7 @@ import {
   SET_TOKEN,
   FETCH_LOGIN_START,
   FETCH_LOGIN_SUCCESS,
+  LOGIN_INIT
 } from "./actionTypes";
 import { fetchNotes } from "./notes";
 
@@ -24,6 +25,13 @@ export function signIn(credentials) {
   };
 }
 
+export function loginInit(credentials) {
+  return {
+    type: LOGIN_INIT,
+    credentials
+  }
+}
+
 export function autoLogin() {
   return (dispatch) => {
     const token = localStorage.getItem("token");
@@ -34,19 +42,19 @@ export function autoLogin() {
   };
 }
 
-function fetchLoginStart() {
+export function fetchLoginStart() {
   return {
     type: FETCH_LOGIN_START,
   };
 }
 
-function fetchLoginSuccess() {
+export function fetchLoginSuccess() {
   return {
     type: FETCH_LOGIN_SUCCESS,
   };
 }
 
-function autoSuccess(token) {
+export function autoSuccess(token) {
   return {
     type: SET_TOKEN,
     token,

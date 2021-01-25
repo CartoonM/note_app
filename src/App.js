@@ -7,7 +7,7 @@ import {autoLogin} from './store/actions/auth'
 
 function App({ token, autoLogin }) {
 
-  useEffect(() => autoLogin(), [autoLogin]);
+  // useEffect(() => autoLogin(), [autoLogin]);
 
   return (
     <div className="App">

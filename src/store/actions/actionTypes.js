@@ -1,5 +1,6 @@
 export const SAVE_NOTES = 'SAVE_NOTES';
 
+export const LOGIN_INIT = 'LOGIN_INIT';
 export const SET_TOKEN = 'SET_TOKEN';
 export const FETCH_LOGIN_START = 'FETCH_LOGIN_START';
 export const FETCH_LOGIN_SUCCESS = 'FETCH_LOGIN_SUCCESS';

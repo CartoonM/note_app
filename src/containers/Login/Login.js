@@ -1,34 +1,30 @@
-import {connect} from 'react-redux';
-import classes from './Login.module.scss';
-import LoginForm from './LoginForm/LoginForm';
-import {signIn} from '../../store/actions/auth';
+import { connect } from "react-redux";
+import classes from "./Login.module.scss";
+import LoginForm from "./LoginForm/LoginForm";
+import { loginInit } from "../../store/actions/auth";
 
-const Login = props => {
+const Login = (props) => {
+  const onSubmitForm = (formValues) => {
+    props.loginInit(formValues);
+  };
 
-    const onSubmitForm = formValues => {
-        props.signIn(formValues);
-    }
-
-    return (
-        <div className={classes.Login}>
-            <LoginForm
-              onSubmit={onSubmitForm}
-              loading={props.loading}
-            />
-        </div>
-    )
-}
+  return (
+    <div className={classes.Login}>
+      <LoginForm onSubmit={onSubmitForm} loading={props.loading} />
+    </div>
+  );
+};
 
 function mapStateToProps(state) {
-    return {
-        loading: state.auth.get('loading')
-    }
+  return {
+    loading: state.auth.get("loading"),
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        signIn: credentials => dispatch(signIn(credentials))
-    }
+  return {
+    loginInit: (credentials) => dispatch(loginInit(credentials)),
+  };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
