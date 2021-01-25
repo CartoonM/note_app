@@ -27,7 +27,10 @@ export function signIn(credentials) {
 export function autoLogin() {
   return (dispatch) => {
     const token = localStorage.getItem("token");
-    if (token) dispatch(autoSuccess(token));
+    if (token) {
+        dispatch(autoSuccess(token));
+        dispatch(fetchNotes());
+    }
   };
 }
 
