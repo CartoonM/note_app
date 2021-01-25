@@ -1,5 +1,5 @@
 import axiosNoteApi from '../../axios/axiosNoteApi';
-import {SAVE_NOTEs} from './actionTypes';
+import {SAVE_NOTES} from './actionTypes';
 
 export function addNote(note) {
     return async (dispatch, getState) => {
@@ -33,7 +33,7 @@ export function fetchNotes() {
 
 export function saveNotes(notes) {
     return {
-        type: SAVE_NOTEs,
+        type: SAVE_NOTES,
         notes
     }
 }

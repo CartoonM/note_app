@@ -1,4 +1,4 @@
-export const SAVE_NOTEs = 'SAVE_NOTEs';
+export const SAVE_NOTES = 'SAVE_NOTES';
 
 export const SET_TOKEN = 'SET_TOKEN';
 export const FETCH_LOGIN_START = 'FETCH_LOGIN_START';

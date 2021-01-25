@@ -1,4 +1,4 @@
-import {SAVE_NOTEs} from '../actions/actionTypes';
+import {SAVE_NOTES} from '../actions/actionTypes';
 
 const initialState = {
     notes: []
@@ -6,7 +6,7 @@ const initialState = {
 
 export default function notesReducer(state = initialState, action) {
     switch (action.type) {
-        case SAVE_NOTEs:
+        case SAVE_NOTES:
             return {
                 ...state, notes: action.notes
             }
